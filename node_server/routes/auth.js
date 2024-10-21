@@ -310,12 +310,12 @@ router.post('/request-password-reset', async (req, res) => {
         transporter.sendMail(mailOptions, (err) => {
           console.log(err)
             if (err) {
-                return res.status(500).json({ message: 'Error sending email', error: err.message });
+                return res.status(500).json({ message: 'Error sending email', error: err.message,status:'fail'  });
             }
-            res.status(200).json({ message: 'Password reset email sent' });
+            res.status(200).json({ message: 'Password reset email sent. Check your email',status:'success' });
         });
     } catch (err) {
-        res.status(500).json({ message: 'Error processing request', error: err.message });
+        res.status(500).json({ message: 'Error processing request', error: err.message,status:'fail'  });
     }
 });
 
@@ -342,9 +342,9 @@ router.post('/reset-password/:token', async (req, res) => {
         member.resetPasswordExpires = undefined;
         await member.save();
 
-        res.status(200).json({ message: 'Password has been reset' });
+        res.status(200).json({ message: 'Password has been reset' ,status:'success'});
     } catch (err) {
-        res.status(500).json({ message: 'Error resetting password', error: err.message });
+        res.status(500).json({ message: 'Error resetting password', error: err.message,status:'fail' });
     }
 });
 
