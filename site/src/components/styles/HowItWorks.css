@@ -1,0 +1,238 @@
+@media (max-width: 767px) {
+  .how-it-works-section {
+    display: flex;
+    padding: 2rem 2rem 2rem 2rem;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 15%;
+  }
+
+  .steps-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .image-container {
+    display: flex;
+    width: fit-content;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .howItWorksTopDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0.6rem;
+  }
+
+  .howItWorksFloatingTitle {
+    border-radius: 0.5rem;
+    box-shadow: 1rem 1rem 2rem 0.1rem rgba(0, 0, 0, 0.281);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: #2c75ff;
+    width: fit-content;
+  }
+
+  .howItWorksFloatingTitle h2 {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .howItWorksTopDiv > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .howItWorksTopDiv > div:nth-child(2) h2 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: rgb(61, 61, 61);
+    line-height: 3.5rem;
+  }
+
+  .howItWorksTopDiv > div:nth-child(2) p {
+    width: 90%;
+    color: rgb(61, 61, 61);
+  }
+
+  .bigLogoImage {
+    position: absolute;
+    top: 22%;
+    left: 48%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .how-it-works-section {
+    display: flex;
+    gap: 1rem;
+    padding: 4rem 0rem 4rem 8rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .steps-container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .image-container {
+    /* display: flex; */
+    width: 50%;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .howItWorksTopDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .howItWorksFloatingTitle {
+    border-radius: 0.5rem;
+    box-shadow: 1rem 1rem 2rem 0.1rem rgba(0, 0, 0, 0.281);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: #2c75ff;
+    width: fit-content;
+  }
+
+  .howItWorksFloatingTitle h2 {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .howItWorksTopDiv > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .howItWorksTopDiv > div:nth-child(2) h2 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: rgb(61, 61, 61);
+    line-height: 3.5rem;
+  }
+
+  .howItWorksTopDiv > div:nth-child(2) p {
+    width: 40%;
+    color: rgb(61, 61, 61);
+  }
+
+  .bigLogoImage {
+    position: absolute;
+    top: 22%;
+    left: 48%;
+    z-index: -1;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .how-it-works-section {
+    display: flex;
+    padding: 2rem 2rem 2rem 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .steps-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .image-container {
+    width: 50%;
+    justify-content: end;
+  }
+
+  .image-container > img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .howItWorksTopDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .howItWorksFloatingTitle {
+    border-radius: 0.5rem;
+    box-shadow: 1rem 1rem 2rem 0.1rem rgba(0, 0, 0, 0.281);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: #2c75ff;
+    width: fit-content;
+  }
+
+  .howItWorksFloatingTitle h2 {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .howItWorksTopDiv > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .howItWorksTopDiv > div:nth-child(2) h2 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: rgb(61, 61, 61);
+    line-height: 3.5rem;
+  }
+
+  .howItWorksTopDiv > div:nth-child(2) p {
+    width: 65%;
+    color: rgb(61, 61, 61);
+  }
+
+  .bigLogoImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}

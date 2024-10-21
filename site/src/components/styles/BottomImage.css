@@ -1,0 +1,242 @@
+
+#installBtn2{
+  background-color:#2c75ff;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  /* height: 30px; */
+  font-family: 'Barlow';
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* bottom: 5px; */
+  cursor: pointer;
+  padding-bottom: 30px;
+}
+@media (min-width: 1024px) {
+  .parentDiv-bottom {
+    display: flex;
+    justify-content: center;
+    margin-left: 2.5rem;
+    margin-bottom: 5%;
+  }
+
+  .bottom-holder {
+    position: relative;
+    display: flex;
+    width: 85%;
+    margin-top: 5%;
+    background-color: #102c70;
+    border-radius: 1.5rem;
+  }
+
+  .logoImgHolder {
+    position: absolute;
+    width: 80vw;
+    height: auto;
+  }
+
+  .logoImgHolder img {
+    width: 100%;
+  }
+
+  .lapHolder {
+    position: absolute;
+    width: clamp(26.5rem, 37.5vw, 100rem);
+    right: 5%;
+    top: -2.5rem;
+  }
+
+  .lapHolder img {
+    width: 100%;
+  }
+
+  .textDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin: 3rem 4rem 4rem 4rem;
+  }
+
+  .textDiv p {
+    /* ///////here/////// */
+    font-size: 2.95vw;
+    line-height: 2.8rem;
+    margin: 0;
+    color: white;
+    font-weight: 600;
+  }
+
+  .textDiv span {
+    color: #2c75ff;
+  }
+
+  .textDiv button {
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #2c75ff;
+    box-shadow: 0.2rem 0.4rem 1rem 0.05rem #2c76ff88;
+    /* ///////here////// */
+    font-size: 1.5vw;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    width: fit-content;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .parentDiv-bottom {
+    display: flex;
+    justify-content: center;
+    margin-left: 2.5rem;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+
+  .bottom-holder {
+    position: relative;
+    display: flex;
+    width: 90%;
+    margin-top: 5%;
+    background-color: #102c70;
+    border-radius: 1.5rem;
+  }
+
+  .logoImgHolder {
+    position: absolute;
+    width: 80vw;
+    height: auto;
+  }
+
+  .logoImgHolder img {
+    width: 100%;
+  }
+
+  .lapHolder {
+    position: absolute;
+    width: clamp(20rem, 37.5vw, 100rem);
+    right: 5%;
+    top: -2.5rem;
+  }
+
+  .lapHolder img {
+    width: 100%;
+  }
+
+  .textDiv {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 100rem);
+    margin: 2rem 2.5rem 3rem 2.5rem;
+  }
+
+  .textDiv p {
+    font-size: clamp(1.6rem, 2.95vw, 100rem);
+    line-height: 2.8rem;
+    margin: 0;
+    color: white;
+    font-weight: 600;
+  }
+
+  .textDiv span {
+    color: #2c75ff;
+  }
+
+  .textDiv button {
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #2c75ff;
+    box-shadow: 0.2rem 0.4rem 1rem 0.05rem #2c76ff88;
+    font-size: clamp(0.85rem, 1.5vw, 100rem);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    width: fit-content;
+  }
+}
+@media (max-width: 767px) {
+  .parentDiv-bottom {
+    display: flex;
+    justify-content: center;
+    margin: 10% 2.5% 10% 2.5%;
+    z-index: 1;
+  }
+
+  .bottom-holder {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 5%;
+    background-color: #102c70;
+    border-radius: 1.5rem;
+    z-index: 3;
+  }
+
+  .logoImgHolder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    z-index: -1;
+  }
+
+  .logoImgHolder img {
+    width: 100%;
+  }
+
+  .lapHolder {
+    position: relative;
+    order: 1;
+    width: clamp(15rem, 50vw, 100rem);
+    left: 50%;
+    transform: translate(-50%);
+    top: -2.5rem;
+    z-index: 1;
+  }
+
+  .lapHolder img {
+    width: 100%;
+  }
+
+  .textDiv {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 4vw, 100rem);
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: -2rem;
+    z-index: 2;
+  }
+
+  .textDiv p {
+    font-size: clamp(1.6rem, 6vw, 100rem);
+    line-height: 7.5vw;
+    margin: 0;
+    color: white;
+    font-weight: 600;
+  }
+
+  .textDiv span {
+    color: #2c75ff;
+  }
+
+  .textDiv button {
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #2c75ff;
+    box-shadow: 0.2rem 0.4rem 1rem 0.05rem #2c76ff88;
+    font-size: clamp(0.85rem, 3vw, 100rem);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    width: fit-content;
+  }
+}

@@ -1,0 +1,238 @@
+/* @import url('./fonts/MonumentExtended-Regular.otf') */
+
+@font-face {
+  font-family: "MonumentExtended";
+  src: url("./fonts/MonumentExtended-Regular.otf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+
+@font-face {
+  font-family: "MonumentExtendedBold";
+  src: url("./fonts/MonumentExtended-Ultrabold.otf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+
+@font-face {
+  font-family: "BankGothicRegular";
+  src: url("./fonts/Bank Gothic Light Regular.otf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+@font-face {
+  font-family: "BankGothicMedium";
+  src: url("./fonts/bank gothic medium bt.ttf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+@font-face {
+  font-family: "BankGothicBold";
+  src: url("./fonts/BankGothic Bold.ttf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+@font-face {
+  font-family: "Eurostyle";
+  src: url("./fonts/EuroStyle Normal.ttf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+@font-face {
+  font-family: "EurostileExtended";
+  src: url("./fonts/EurostileExtendedBlack.ttf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+
+@font-face {
+  font-family: "Eurostyle";
+  src: url("./fonts/EuroStyle Normal.ttf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+@font-face {
+  font-family: "EurostileExtended";
+  src: url("./fonts/EurostileExtendedBlack.ttf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/montserrat/Montserrat-Medium.ttf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+@font-face {
+  font-family: "MontserratBold";
+  src: url("./fonts/montserrat/Montserrat-Bold.ttf") format("opentype");
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
+}
+
+*.title ,.h1TextDiv{
+  font-family: "MonumentExtended";
+}
+
+*.reg {
+  font-family: "Montserrat";
+}
+*.title-bold {
+  font-family: "MonumentExtendedBold";
+}
+
+/* *#bold{
+  font-family: 'MonumentExtendedBold';
+} */
+
+#home,
+#ShowCase,
+#features,
+#download,
+#tutorial,
+#footer {
+  /* font-family: "MonumentExtended"; */
+  /* font-family: "Barlow"; */
+  /* font-weight:400; */
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  /* font-family: "MonumentExtendedLight", Arial, sans-serif; */
+}
+
+#main_text_parent p,
+#main_text_parent span {
+  font-size: 7rem;
+  font-family: "MonumentExtendedBold";
+  margin: 0px;
+}
+
+#navbar #light {
+  /* font-weight:400; */
+}
+
+a[href] {
+  transition: 0.2s ease-in-out;
+}
+a[href]:hover {
+  color: #2c75ff;
+}
+
+a[href] button {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+a[href] button:hover {
+  background-color: #101f6e;
+}
+
+#home #bold {
+  /* font-family: "MonumentExtendedBold"; */
+  font-weight: 1000;
+}
+
+#about {
+  /* font-family: "MonumentExtended"; */
+}
+#about button {
+  /* font-family: "MonumentExtended"; */
+}
+
+#explore {
+  /* font-family: "MonumentExtended"; */
+}
+
+#howWorks {
+  /* font-family: "MonumentExtended"; */
+}
+
+#tutorial {
+  /* font-family: "MonumentExtended"; */
+}
+
+#pricing {
+  /* font-family: "MonumentExtended"; */
+}
+#pricing button {
+  /* font-family: "MonumentExtended"; */
+}
+
+#footer {
+  /* font-family: "MonumentExtended"; */
+}
+
+#navbarItems {
+  width: 55%;
+}
+#navbar_parent {
+  padding: 0px 40px 0px 40px;
+}
+#compressed_navbar {
+  display: none;
+}
+#navbar_parent li {
+  list-style: none;
+  height: 50px;
+}
+
+#front {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+@media only screen and (max-width: 1000px) {
+  /*Tablets [601px -> 1200px]*/
+  #navbarItems {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  #main_text_parent p,
+  #main_text_parent span {
+    font-size: 5.2rem;
+  }
+}
+@media only screen and (max-width: 760px) {
+  #main_text_parent p,
+  #main_text_parent span {
+    font-size: 4.5rem;
+  }
+}
+@media only screen and (max-width: 580px) {
+  #main_text_parent p,
+  #main_text_parent span {
+    font-size: 4rem;
+  }
+}
+@media only screen and (max-width: 460px) {
+  #main_text_parent p,
+  #main_text_parent span {
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 350px) {
+  #main_text_parent {
+    line-height: 200px;
+  }
+  #main_text_parent p,
+  #main_text_parent span {
+    font-size: 2.8rem;
+  }
+}
+
+.arrowsBottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.arrowsBottom img {
+  width: 90%;
+}

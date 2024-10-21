@@ -1,0 +1,39 @@
+#footerHolder {
+  justify-content: space-between;
+}
+#footerLogo {
+  width: 20%;
+  justify-content: center;
+}
+#footerLinks {
+  width: 60%;
+}
+#footerSocial {
+  width: 20%;
+  justify-content: space-around;
+}
+#footer {
+  margin-top: 10%;
+}
+
+@media only screen and (max-width: 760px) {
+  #footerLogo {
+    width: 100%;
+  }
+  #footerHolder {
+    justify-content: center;
+  }
+  #footerLinks {
+    width: 100%;
+    margin-top: 10px;
+  }
+  #footerSocial {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  #footerSocial > * {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,477 @@
+a {
+  text-decoration: none;
+}
+.recommendedDivText p {
+  font-size: 1rem !important;
+}
+
+.plansParentDiv p,
+.plansParentDiv h1,
+.plansParentDiv button {
+  font-family: "Montserrat";
+}
+
+@media (max-width: 767px) {
+  .PricingParentContainer {
+    margin: 5%;
+  }
+
+  .plansParentDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .pricingPlans h1 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2vw, 80rem);
+    color: black;
+    font-weight: 800;
+  }
+
+  .freePlan {
+    background-color: rgb(241, 241, 241);
+    border-radius: 2rem;
+    width: clamp(15rem, 26vw, 100rem);
+    height: clamp(18rem, 35vw, 100rem);
+  }
+
+  .deluxePlan {
+    background-color: rgb(241, 241, 241);
+    border-radius: 2rem;
+    width: clamp(15rem, 26vw, 100rem);
+    height: clamp(19rem, 37vw, 100rem);
+  }
+
+  .premiumPlan {
+    background-color: #2c75ff;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    width: clamp(15rem, 28vw, 100rem);
+    height: clamp(23rem, 45vw, 100rem);
+  }
+
+  .h1TextDiv {
+    text-align: center;
+  }
+
+  .PricingParentContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .recommendedDiv {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: fit-content;
+  }
+
+  .recommendedDiv p {
+    margin: 0;
+    color: #2c75ff;
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1vw, 80rem);
+  }
+
+  .bolderText {
+    font-weight: 600;
+  }
+
+  .premiumPlan h1 {
+    color: white;
+  }
+
+  .premiumPlan > .flexPricingDiv p {
+    color: white;
+  }
+
+  .premiumPlan .plansImagesDiv p {
+    color: white;
+  }
+
+  .pricingPlans {
+    padding: 1.5rem 2.5rem 1.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .imageDivsParent p {
+    font-size: clamp(1rem, 1.6vw, 90rem);
+  }
+
+  .plansImagesDiv {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .freePlan > div:nth-child(2) {
+    display: flex;
+    justify-content: left;
+  }
+
+  .deluxePlan > div:nth-child(2) {
+    display: flex;
+    justify-content: left;
+  }
+
+  .plansImagesDiv > div {
+    width: clamp(2.4rem, 3.2vw, 100rem);
+    height: clamp(2.4rem, 3.2vw, 100rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .plansImagesDiv > div img {
+    width: 100%;
+  }
+
+  .flexPricingDiv {
+    display: flex;
+    align-items: center;
+  }
+
+  .deluxePlan > .flexPricingDiv h1,
+  .deluxePlan > .flexPricingDiv p {
+    color: #2c75ff;
+  }
+
+  .buttonDivPricingContainer {
+    text-align: center;
+  }
+
+  .buttonDivPricingContainer button {
+    all: unset;
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    font-weight: 500;
+    font-size: clamp(0.8rem, 1.2vw, 90rem);
+    border-radius: 8px;
+    box-shadow: 0.2rem 0.2rem 1rem 0.5px #2c76ffab;
+  }
+
+  .freePlan button,
+  .deluxePlan button {
+    background-color: #2c75ff;
+    color: white;
+  }
+
+  .premiumPlan button {
+    background-color: white;
+    color: #2c75ff;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .PricingParentContainer {
+    margin-bottom: 10%;
+  }
+
+  .plansParentDiv {
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+  }
+
+  .pricingPlans h1 {
+    color: black;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+  }
+
+  .freePlan {
+    background-color: rgb(241, 241, 241);
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+  }
+
+  .freePlan > div:nth-child(2) {
+    display: flex;
+    justify-content: left;
+  }
+
+  .deluxePlan {
+    background-color: rgb(241, 241, 241);
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+  }
+
+  .premiumPlan {
+    background-color: #2c75ff;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .PricingParentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .recommendedDiv {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: fit-content;
+  }
+
+  .recommendedDiv p {
+    margin: 0;
+    color: #2c75ff;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  .bolderText {
+    font-weight: 600;
+  }
+
+  .premiumPlan h1 {
+    font-weight: 500;
+    font-size: 2rem;
+    color: white;
+  }
+
+  .premiumPlan > .flexPricingDiv p {
+    color: white;
+  }
+
+  .premiumPlan .plansImagesDiv p {
+    color: white;
+  }
+
+  .pricingPlans {
+    padding: 3rem 3rem 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .imageDivsParent p {
+    font-size: 1rem;
+  }
+
+  .imageDivsParent {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .plansImagesDiv {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .plansImagesDiv > div {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .plansImagesDiv > div img {
+    width: 100%;
+  }
+
+  .flexPricingDiv {
+    display: flex;
+    align-items: center;
+  }
+
+  .deluxePlan > .flexPricingDiv h1,
+  .deluxePlan > .flexPricingDiv p {
+    color: #2c75ff;
+  }
+
+  .buttonDivPricingContainer {
+    text-align: center;
+  }
+
+  .buttonDivPricingContainer button {
+    all: unset;
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    box-shadow: 0.2rem 0.2rem 1rem 0.5px #2c76ffab;
+  }
+
+  .freePlan button,
+  .deluxePlan button {
+    background-color: #2c75ff;
+    color: white;
+  }
+
+  .premiumPlan button {
+    background-color: white;
+    color: #2c75ff;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .plansParentDiv {
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
+
+  .pricingPlans h1 {
+    margin: 0;
+    font-size: clamp(1.4rem, 2.4vw, 80rem);
+    color: black;
+    font-weight: 800;
+  }
+
+  .freePlan {
+    background-color: rgb(241, 241, 241);
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    width: clamp(5rem, 22vw, 100rem);
+    height: clamp(20rem, 32vw, 100rem);
+  }
+
+  .deluxePlan {
+    background-color: rgb(241, 241, 241);
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    width: clamp(5rem, 22vw, 100rem);
+    height: clamp(20rem, 32vw, 100rem);
+  }
+
+  .premiumPlan {
+    background-color: #2c75ff;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    width: clamp(10rem, 23vw, 100rem);
+    height: clamp(25rem, 38vw, 100rem);
+  }
+
+  .h1TextDiv {
+    text-align: center;
+  }
+
+  .PricingParentContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .recommendedDiv {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: fit-content;
+  }
+
+  .recommendedDiv p {
+    margin: 0;
+    color: #2c75ff;
+    font-weight: 600;
+    font-size: 1.4vw;
+  }
+
+  .freePlan > div:nth-child(2) {
+    display: flex;
+    justify-content: left;
+  }
+
+  .deluxePlan > div:nth-child(2) {
+    display: flex;
+    justify-content: left;
+  }
+
+  .bolderText {
+    font-weight: 600;
+  }
+
+  .premiumPlan h1 {
+    color: white;
+  }
+
+  .premiumPlan > .flexPricingDiv p {
+    color: white;
+  }
+
+  .premiumPlan .plansImagesDiv p {
+    color: white;
+  }
+
+  .pricingPlans {
+    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .imageDivsParent p {
+    font-size: clamp(1rem, 1.55vw, 80rem);
+  }
+
+  .plansImagesDiv {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .plansImagesDiv > div {
+    width: clamp(2.2rem, 3.2vw, 100rem);
+    height: clamp(2rem, 3.2vw, 100rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .plansImagesDiv > div img {
+    width: 100%;
+  }
+
+  .flexPricingDiv {
+    display: flex;
+    align-items: center;
+  }
+
+  .deluxePlan > .flexPricingDiv h1,
+  .deluxePlan > .flexPricingDiv p {
+    color: #2c75ff;
+  }
+
+  .buttonDivPricingContainer {
+    text-align: center;
+  }
+
+  .buttonDivPricingContainer button {
+    all: unset;
+    padding: 0.8rem 1rem 0.8rem 1rem;
+    font-weight: 500;
+    font-size: clamp(0.7rem, 1.2vw, 100rem);
+    border-radius: 8px;
+    box-shadow: 0.2rem 0.2rem 1rem 0.5px #2c76ffab;
+  }
+
+  .freePlan button,
+  .deluxePlan button {
+    background-color: #2c75ff;
+    color: white;
+  }
+
+  .premiumPlan button {
+    background-color: white;
+    color: #2c75ff;
+  }
+}

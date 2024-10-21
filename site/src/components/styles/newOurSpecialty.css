@@ -1,0 +1,82 @@
+.howItWorksFloatingTitle{
+  padding: 0px;
+}
+.howItWorksFloatingTitle h4{
+  font-size: 1rem;
+  margin: 0px;
+  
+}
+
+.extensionSpann{
+  font-size: 1.7rem;
+  margin: 0px;
+  color: #2c75ff;
+  margin: 0px;
+  font-weight: 500;
+}
+
+.extensionTitle{
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin: 0px;
+}
+@media (max-width: 767px) {
+  .ourSpecialtyStepsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+
+  .OurSpecialtyParentDiv {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 10%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ourSpecialtyStepsContainer {
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+
+  .OurSpecialtyParentDiv {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 10%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ourSpecialtyStepsContainer {
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+  }
+
+  .OurSpecialtyParentDiv {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+    margin-bottom: 5%;
+  }
+}

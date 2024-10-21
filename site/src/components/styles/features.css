@@ -1,0 +1,125 @@
+@media (min-width: 1024px) {
+  .features-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+
+  .features-wrapper {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .single-feature {
+    width: 45%;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+    min-width: 250px;
+  }
+
+  .feature-text {
+    margin: 0;
+  }
+
+  .feature-main-text {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  .feature-expl {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .feature-divider {
+    width: 50px;
+    height: 2px;
+    background-color: black;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .features-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10%;
+  }
+
+  .features-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .single-feature {
+    width: clamp(18rem, 32vw, 100rem);
+    display: grid;
+    gap: 1rem;
+  }
+
+  .feature-main-text h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.2vw, 100rem);
+    color: rgb(61, 61, 61);
+  }
+
+  .feature-expl p {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.6vw, 100rem);
+    color: rgb(61, 61, 61);
+  }
+
+  .feature-divider {
+    width: 50px;
+    height: 2px;
+    background-color: black;
+  }
+}
+@media (max-width: 767px) {
+  .features-container {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+  }
+
+  .features-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .single-feature {
+    width: clamp(17rem, 42vw, 100rem);
+    display: grid;
+    gap: 1rem;
+  }
+
+  .feature-text {
+    margin: 0;
+  }
+
+  .feature-main-text h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.2vw, 100rem);
+    color: rgb(61, 61, 61);
+  }
+
+  .feature-expl p {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.6vw, 100rem);
+    color: rgb(61, 61, 61);
+  }
+
+  .feature-divider {
+    width: 50px;
+    height: 2px;
+    background-color: black;
+  }
+}

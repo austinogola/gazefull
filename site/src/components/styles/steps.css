@@ -1,0 +1,213 @@
+.step_text_holder p{
+  margin-top: 5px;
+}
+@media (max-width: 767px) {
+  .stepParentDiv {
+    border-radius: 1rem;
+    background-color: rgb(238, 238, 238);
+    position: relative;
+    width: fit-content;
+  }
+
+  .stepFloating {
+    position: absolute;
+    color: white;
+    background-color: #2c75ff;
+    border-radius: 0.55rem;
+    padding: 0.2rem 1.5rem 0.2rem 1.5rem;
+    /* font-size: 1.4rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -10%;
+    left: 5%;
+  }
+
+  .stepParentDiv p,
+  .stepParentDiv h3 {
+    margin: 0;
+  }
+
+  .stepsBodyDiv p,
+  h3 {
+    color: rgb(61, 61, 61);
+  }
+
+  .step_text_holder h3{
+    font-size: 1rem;
+  }
+
+  .step_text_holder p{
+    font-size: 0.8rem;
+  }
+  .stepsBodyDiv > div:nth-child(1) {
+    width: 10rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stepsBodyDiv > div:nth-child(1) img {
+    width: clamp(50px, 2vw, 200px);
+    height: auto;
+    max-width: 200px;
+  }
+
+  .stepsBodyDiv {
+    display: flex;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .stepsBodyDiv > div:nth-child(2) {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .step_text_holder p{
+    margin-top: 2px;
+  }
+  .step_text_holder h3{
+    margin-top: 5px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .stepParentDiv {
+    border-radius: 1rem;
+    background-color: rgb(238, 238, 238);
+    position: relative;
+    width: fit-content;
+  }
+
+  .stepFloating {
+    position: absolute;
+    color: white;
+    background-color: #2c75ff;
+    border-radius: 0.55rem;
+    padding: 0.2rem 1.5rem 0.2rem 1.5rem;
+    /* font-size: 1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -10%;
+    left: 5%;
+  }
+
+  .stepParentDiv p,
+  .stepParentDiv h3 {
+    margin: 0;
+  }
+
+  .stepsBodyDiv p,
+  h3 {
+    color: rgb(61, 61, 61);
+  }
+
+  .stepsBodyDiv p {
+    font-size: 0.85rem;
+  }
+
+  .stepsBodyDiv h3 {
+    font-size: 1rem;
+  }
+
+  .stepsBodyDiv > div:nth-child(1) {
+    width: 2.5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stepsBodyDiv > div:nth-child(1) img {
+    width: 100%;
+    height: auto;
+  }
+
+  .stepsBodyDiv {
+    display: flex;
+    padding: 0.8rem 1.5rem 0.5rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .stepsBodyDiv > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    width: fit-content;
+    /* width: clamp(5rem, 29vw, 21.5rem); */
+  }
+
+  .step_text_holder p{
+    margin-top: 2px;
+  }
+  .step_text_holder h3{
+    margin-top: 5px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .stepParentDiv {
+    border-radius: 1rem;
+    background-color: rgb(238, 238, 238);
+    position: relative;
+    width: fit-content;
+  }
+
+  .stepFloating {
+    position: absolute;
+    color: white;
+    background-color: #2c75ff;
+    border-radius: 0.55rem;
+    padding: 0.2rem 1.5rem 0.2rem 1.5rem;
+    /* font-size: 1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -10%;
+    left: 5%;
+  }
+
+  .stepParentDiv p,
+  .stepParentDiv h3 {
+    margin: 0;
+  }
+
+  .stepsBodyDiv p,
+  h3 {
+    color: rgb(61, 61, 61);
+  }
+
+  .stepsBodyDiv p {
+    font-size: 0.9rem;
+  }
+
+  .stepsBodyDiv h3 {
+    font-size: 1.1rem;
+  }
+
+  .stepsBodyDiv > div:nth-child(1) {
+    width: 2.5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stepsBodyDiv > div:nth-child(1) img {
+    width: 100%;
+    height: auto;
+  }
+
+  .stepsBodyDiv {
+    display: flex;
+    padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .stepsBodyDiv > div:nth-child(2) {
+    display: grid;
+    gap: 0.5rem;
+    width: fit-content;
+  }
+}

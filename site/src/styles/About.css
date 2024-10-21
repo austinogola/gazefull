@@ -1,0 +1,64 @@
+/* Container for both sections */
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    width: 100%;
+  }
+  
+  /* Both sections get 50% width on larger screens */
+  .left-section,
+  .right-section {
+    flex: 1 1 50%; /* Make both sections take 50% of the width */
+    /* padding: 20px; */
+    box-sizing: border-box;
+  }
+
+  .left-section{
+    display: flex;
+    justify-content: center;
+  }
+  .images-holder{
+    width:100%;
+    border: 1px solid blue;
+    position: relative;
+  }
+
+  .img-holder{
+    position: absolute;
+    height: 10vh;
+  }
+  .img-holder img{
+    width:100%;
+    object-fit: contain;
+  }
+  .img-holder.dark{
+    width:50%;
+    left:30%;
+  }
+  .img-holder.light{
+    width:50%;
+    left:50%;
+    top:100px;
+    z-index: 5;
+  }
+  .img-holder.lg{
+    width:35%;
+    right:0px;
+    left:85%;
+    z-index: 4;
+  }
+  
+
+  .right-section{
+    display: flex;
+    justify-content: center;
+  }
+  /* Responsive behavior for screens smaller than 768px */
+  @media (max-width: 800px) {
+    .left-section,
+    .right-section {
+      flex: 1 1 100%; /* Make each section take 100% width */
+    }
+  }
+  
