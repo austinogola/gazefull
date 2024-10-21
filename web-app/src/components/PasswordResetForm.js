@@ -25,14 +25,20 @@ function PasswordResetForm() {
           // 'Authorization': `Bearer ${cookies.gg_token}`,
         },
         body:JSON.stringify({newPassword:password})
-    }).then(async resp=>{
-      const res=await resp.json()
-      console.log(res)
-    //   setPlanDetails(res.plan)
-      // setPLANS(res.plans)
-      // window.location.href = res.plan.link;
     })
-    console.log('Password reset with token:', token);
+    .then(async resp => {
+      const res = await resp.json();
+      if (resp.ok) {
+        alert('Password reset successful!');
+        // Optionally redirect the user or clear the form
+      } else {
+        alert(`Error: ${res.message || 'Password reset failed'}`);
+      }
+    })
+    .catch(error => {
+      console.error('Error during password reset:', error);
+      alert('An unexpected error occurred. Please try again later.');
+    });
   };
 
   return (
