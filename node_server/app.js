@@ -51,6 +51,10 @@ require("./config/passport");
 app.use("/auth", authRoutes);
 app.use("/stripe", stripeRoutes);
 
+app.get('/',async(req,res)=>{
+  res.status(200).json({status:'Running'})
+})
+
 // Connect to MongoDB
 mongoose
   .connect(process.env.db_url, {
