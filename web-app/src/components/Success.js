@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles/Success.css";
 
 export default function Success() {
   return (
