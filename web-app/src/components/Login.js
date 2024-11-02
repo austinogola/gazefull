@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
 import "./styles/Login.css";
-import background from "./images/background.png";
+import background from "./images/background-cropped.png";
 import logo from "./images/logo.png";
 import google from "./images/search.png";
 import mail from "./images/mail.png";
@@ -135,11 +135,11 @@ export default function Login() {
           <button type="submit" className="sign-in-button" disabled={loading}>
             {loading ? "Signing in..." : "SIGN IN"}
           </button>
-          <div className="googleDiv">
+          {/* <div className="googleDiv">
             <button type="button" className="google-sign-in">
               <img className="google-icon" src={google} alt="google-logo" />
             </button>
-          </div>
+          </div> */}
         </form>
         <p className="signup-link">
           Don't have an account? <a href="/signup">Sign up</a>

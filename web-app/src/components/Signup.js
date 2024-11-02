@@ -5,7 +5,7 @@ import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
 import "./styles/Signup.css";
 import Spinner from "./Spinner";
-import background from "./images/background.png";
+import background from "./images/background-cropped.png";
 import logo from "./images/logo.png";
 import google from "./images/search.png";
 import mail from "./images/mail.png";
@@ -127,11 +127,11 @@ function Signup() {
           <button type="submit" className="sign-up-button" disabled={loading}>
             {loading ? "Signing up..." : "SIGN UP"}
           </button>
-          <div className="googleDiv">
+          {/* <div className="googleDiv">
             <button type="button" className="google-sign-in">
               <img className="google-icon" src={google} alt="google-logo" />
             </button>
-          </div>
+          </div> */}
           {apiError && <p className="error-message">{apiError}</p>}
         </form>
         <p className="login-link">
