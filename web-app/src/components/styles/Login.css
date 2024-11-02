@@ -7,10 +7,11 @@
 }
 
 .backgroundImage {
-  position: absolute;
-  width: 100%;
+  top: 0;
+  width: 100vw;
   height: 100vh;
   z-index: -1;
+  position: absolute;
   overflow: hidden;
 }
 

@@ -5,7 +5,7 @@ export default function Success() {
   return (
     <div className="success-container">
       <h1>Success!</h1>
-      <p>You have successfully logged in.</p>
+      <p>You are successfully logged in.</p>
       <div className="success-message">
         <span role="img" aria-label="green tick" style={{ fontSize: '2rem' }}>✅</span>
         <p>Note: Please make sure to pin the extension.</p>
