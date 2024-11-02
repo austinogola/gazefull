@@ -46,7 +46,7 @@ function Signup() {
           const date = new Date();
           date.setTime(date.getTime() + 21 * 24 * 60 * 60 * 1000); // 21 days from now
           setCookie("gg_token", gg_token, { path: "/", expires: date });
-          navigate(`/${userParam || ""}`);
+          navigate(`/success`);
         } else {
           setApiError(response.data.message);
         }

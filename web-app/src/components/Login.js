@@ -55,7 +55,7 @@ export default function Login() {
             date.getTime() + (keepMeSignedIn ? 21 : 1) * 24 * 60 * 60 * 1000
           );
           setCookie("gg_token", gg_token, { path: "/", expires: date });
-          navigate(`/${userParam || ""}`);
+          navigate(`/success`);
         } else {
           setApiError(response.data.message);
         }
