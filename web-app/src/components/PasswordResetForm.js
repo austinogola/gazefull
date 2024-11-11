@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './styles/PasswordResetForm.css';
+import background from "./images/background-cropped.png";
 
 function PasswordResetForm() {
   const [password, setPassword] = useState('');
@@ -43,6 +44,9 @@ function PasswordResetForm() {
 
   return (
     <div className="password-reset-form-container">
+      <div className="backgroundImage">
+        <img src={background} alt="backgroung-img" />
+      </div>
       <h1>Set New Password</h1>
       <form onSubmit={handleSubmit} className="password-reset-form">
         <label className="password-reset-label">

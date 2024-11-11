@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import "./styles/Success.css";
+import { useCookies } from 'react-cookie'
+import { useNavigate } from 'react-router-dom';
 
 export default function Success() {
+  const [cookies, setCookie, removeCookie] = useCookies(['gg_token']);
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    let gg_token=cookies.gg_token
+      if(!gg_token){
+        navigate('/login');
+      }
+  },[])
   return (
     <div className="success-container">
       <h1>Success!</h1>

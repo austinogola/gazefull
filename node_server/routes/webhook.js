@@ -17,7 +17,8 @@ const PLANS = {
     images: "60 Minutes/Day",
     video: "5 Minutes/Day",
     id: "price_1QBKaTP0Bii0CHodzg28tB1H",
-    link:'https://buy.stripe.com/test_fZebJz2A65fn0tG8wB'
+    test_link:'https://buy.stripe.com/test_fZebJz2A65fn0tG8wB',
+    link:'https://buy.stripe.com/bIY3fk3hI4R16mkeUW'
   },
   Premium: {
     name: "Premium",
@@ -25,7 +26,8 @@ const PLANS = {
     images: "Unlimited Minutes/Day",
     video: "45 Minutes/Day",
     id: "price_1Q7H9OP0Bii0CHodYPqqqEmd",
-    link:"https://buy.stripe.com/test_8wM7tjcaGgY56S48wC"
+    test_link:"https://buy.stripe.com/test_8wM7tjcaGgY56S48wC",
+    link:'https://buy.stripe.com/14k4jo3hI4R14ecbII'
   },
   Deluxe: {
     name: "Deluxe",
@@ -33,7 +35,8 @@ const PLANS = {
     images: "Unlimited Minutes/Day",
     video: "Unlimited Minutes/Day",
     id: "price_1Q7HBFP0Bii0CHodsHrXHIEt",
-    link:"https://buy.stripe.com/test_5kA9Bra2ydLT5O04gn"
+    test_link:"https://buy.stripe.com/test_5kA9Bra2ydLT5O04gn",
+    link:'https://buy.stripe.com/9AQ9DI19A4R1h0Y9AB'
   },
 };
 

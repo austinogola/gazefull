@@ -42,29 +42,32 @@ const LazyImage = ({ src, alt, className }) => {
 function Pricing() {
   const [PLANS,setPLANS]=useState({
     Free: {
-    name: "Free",
-    price: 0,
-    images: "60 Minutes/Day",
-    video: "5 Minutes/Day",
-    id: "price_1QBKaTP0Bii0CHodzg28tB1H",
-    link:'https://buy.stripe.com/test_fZebJz2A65fn0tG8wB'
-  },
-  Premium: {
-    name: "Premium",
-    price: 6.0,
-    images: "Unlimited Minutes/Day",
-    video: "45 Minutes/Day",
-    id: "price_1Q7H9OP0Bii0CHodYPqqqEmd",
-    link:"https://buy.stripe.com/test_8wM7tjcaGgY56S48wC"
-  },
-  Deluxe: {
-    name: "Deluxe",
-    price: 9.9,
-    images: "Unlimited Minutes/Day",
-    video: "Unlimited Minutes/Day",
-    id: "price_1Q7HBFP0Bii0CHodsHrXHIEt",
-    link:"https://buy.stripe.com/test_5kA9Bra2ydLT5O04gn"
-  },
+      name: "Free",
+      price: 0,
+      images: "60 Minutes/Day",
+      video: "5 Minutes/Day",
+      id: "price_1QBKaTP0Bii0CHodzg28tB1H",
+      test_link:'https://buy.stripe.com/test_fZebJz2A65fn0tG8wB',
+      link:'https://buy.stripe.com/bIY3fk3hI4R16mkeUW'
+    },
+    Premium: {
+      name: "Premium",
+      price: 6.0,
+      images: "Unlimited Minutes/Day",
+      video: "45 Minutes/Day",
+      id: "price_1Q7H9OP0Bii0CHodYPqqqEmd",
+      test_link:"https://buy.stripe.com/test_8wM7tjcaGgY56S48wC",
+      link:'https://buy.stripe.com/14k4jo3hI4R14ecbII'
+    },
+    Deluxe: {
+      name: "Deluxe",
+      price: 9.9,
+      images: "Unlimited Minutes/Day",
+      video: "Unlimited Minutes/Day",
+      id: "price_1Q7HBFP0Bii0CHodsHrXHIEt",
+      test_link:"https://buy.stripe.com/test_5kA9Bra2ydLT5O04gn",
+      link:'https://buy.stripe.com/9AQ9DI19A4R1h0Y9AB'
+    },
   })
   return (
     <div className="PricingParentContainer title">

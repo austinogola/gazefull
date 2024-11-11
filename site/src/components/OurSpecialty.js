@@ -38,14 +38,14 @@ const OurSpecialty=()=>{
 
            
             <Flex justifyContent='center' alignItems='center'>
-            <Text textAlign='center' w='60%' fontSize='14px' className='reg'>
+            {/* <Text textAlign='center' w='60%' fontSize='14px' className='reg'>
             Nulla facilisi. Donec laoreet velit at dui interdum, et
             rhoncus leo vehicula. Nam rutrum diam eu
             pellentesque ornare. Maecenas laoreet turpis pharetra
             imperdiet conseqdddduat. In finibus mauris sed
             vestibulum sodales. Donec luctus, ipsum ut bibendum
             dictum, turpis tortor molestie diam, consequat auctor
-                sem nisi id eros.</Text>
+                sem nisi id eros.</Text> */}
             </Flex>
 
             <Flex justifyContent='center' alignItems='center' mt='75px'>

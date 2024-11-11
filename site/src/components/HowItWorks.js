@@ -37,11 +37,11 @@ const HowItWorks = () => {
               Extension
             </span>{" "}
           </h4>
-          <p className="reg">
+          {/* <p className="reg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
             porta ante non ante dignissim aliquam. Pellentesque nunc leo,
             pretium a lorem vel, ornare mollis leo.
-          </p>
+          </p> */}
         </div>
       </div>
       <div className="how-it-works-section">

@@ -38,9 +38,9 @@ const Pricing=()=>{
                     </Text>
             </Box>
             <Flex justifyContent='center' alignItems='center'>
-            <Text textAlign='center' w='70%'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+            {/* <Text textAlign='center' w='70%'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
 porta ante non ante dignissim aliquam. Pellentesque nunc leo,
-pretium a lorem vel, ornare mollis leo.</Text>
+pretium a lorem vel, ornare mollis leo.</Text> */}
             </Flex>
 
             <Flex justifyContent='center' alignItems='center' mt='50px'>

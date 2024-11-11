@@ -36,13 +36,13 @@ const AboutUs=()=>{
                     </Text>
                 </Box>
                 <Box>
-                    <Text fontSize='15px' fontWeight='400'>
+                    {/* <Text fontSize='15px' fontWeight='400'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Vestibulum porta ante non ante dignissim aliquam.
                         Pellentesque nunc leo, pretium a lorem vel, ornare
                         mollis leo.
-                    </Text>
-                    <Text mt='20px' fontSize='15px' fontWeight='400'>
+                    </Text> */}
+                    {/* <Text mt='20px' fontSize='15px' fontWeight='400'>
                         Nulla facilisi. Donec laoreet velit at dui interdum, et
                         rhoncus leo vehicula. Nam rutrum diam eu
                         pellentesque ornare. Maecenas laoreet turpis pharetra
@@ -50,7 +50,7 @@ const AboutUs=()=>{
                         vestibulum sodales. Donec luctus, ipsum ut bibendum
                         dictum, turpis tortor molestie diam, consequat auctor
                         sem nisi id eros
-                    </Text>
+                    </Text> */}
 
                     <Button outline='none' border='none' backgroundColor='#2c75ff'
                     color='white' borderRadius='7px' padding='10px' fontWeight='500'
