@@ -6,8 +6,8 @@ const Member = require("../models/Member");
 
 const router = express.Router();
 
-const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
-const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
+const STRIPE_WEBHOOK_SECRET = process.env.stripe_webhook_secret;
+const STRIPE_SECRET_KEY = process.env.stripe_secret_key;
 const STRIPE = new Stripe(STRIPE_SECRET_KEY);
 
 const PLANS = {

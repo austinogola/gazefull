@@ -19,6 +19,7 @@ function Signup() {
     username: "",
     email: "",
     password: "",
+    phone:""
   });
   const [apiError, setApiError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -103,6 +104,21 @@ function Signup() {
               />
             </div>
           </div>
+
+          <div className="signup-input-group">
+            <div className="floating-logo-div">
+              <input
+                type="tel"
+                placeholder="Phone"
+                value={formData.phone}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
+                required
+              />
+            </div>
+          </div>
+
           <div className="signup-input-group">
             <div className="floating-logo-div">
               <img src={lock} alt="lock-logo" className="lock-logo" />
@@ -116,6 +132,7 @@ function Signup() {
                 required
               />
             </div>
+            
             <button
               type="button"
               className="toggle-password"
