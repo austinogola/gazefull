@@ -51,6 +51,7 @@ function Pricing() {
       link:'https://buy.stripe.com/bIY3fk3hI4R16mkeUW'
     },
     Premium: {
+      
       name: "Premium",
       price: 6.0,
       images: "Unlimited Minutes/Day",

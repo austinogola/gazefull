@@ -16,6 +16,7 @@
 /tours_server
 /gaze_app
 /gaze_site
+/extension
 
 
 *.zip
@@ -69,6 +70,7 @@ bazel-out/
 node_modules/
 npm-debug.log
 yarn-error.log
+
 
 # Angular
 .angular/

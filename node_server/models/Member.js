@@ -8,7 +8,13 @@ const memberSchema = new mongoose.Schema({
     isAdmin: { type: Boolean, default: false } ,
     resetPasswordToken:{type:String},
     resetPasswordExpires:{type:Number},
-    phone:{type:String}
+    phone:{type:String},
+    emailVerificationCode: String,
+    emailVerificationExpires: Date,
+    isEmailVerified: {
+        type: Boolean,
+        default: false
+    }
 });
 
 memberSchema.pre('save', async function(next) {

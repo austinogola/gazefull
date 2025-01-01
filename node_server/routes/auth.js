@@ -50,8 +50,59 @@ router.post('/signup', async (req, res, next) => {
         const { email, username, password,phone} = req.body;
         // console.log(email, username, password)
 
+        const existingUser = await Member.findOne({ $or: [{ email }, { username }] });
+        if (existingUser) {
+            return res.status(400).json({ 
+                message: 'User with this email or username already exists',
+                status: 'fail'
+            });
+        }
+
+        const verificationCode = generateVerificationCode();
+
         // Create a new member
-        const newMember = new Member({ email, username, password,phone });
+        const newMember = new Member({ 
+            email, 
+            username, 
+            password,
+            phone,
+            emailVerificationCode: verificationCode,
+            emailVerificationExpires: Date.now() + 30 * 60 * 1000 // 15 minutes
+        });
+
+        const transporter = nodemailer.createTransport({
+            // service: 'Gmail',
+            host:'mail.spacemail.com',
+            port: 465,
+            secure:true,
+            name:'info@gazeguard.io',
+            auth: {
+                user: process.env.sender_Email,
+                pass:process.env.email_pswd 
+            }
+        });
+
+        // console.log(transporter);
+        
+        // http://${req.headers.host}/reset-password/${resetToken}\n\n
+        const mailOptions = {
+            to: email,
+            from: 'info@gazeguard.io',
+            subject: 'Email Verification for Gaze Guard',
+            text: `Your verification code is: ${verificationCode}\n\n` +
+                  `This code will expire in 15 minutes.\n` +
+                  `If you did not sign up, please ignore this email.`
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        // Save the new member
+        // await newMember.save();
+       
+
+
+        return
+        // const newMember = new Member({ email, username, password,phone });
         await newMember.save();
         console.log(newMember)
 
@@ -118,6 +169,10 @@ router.post('/logout', (req, res) => {
     req.logout();
     res.json({ message: 'Logged out successfully' });
 });
+
+const generateVerificationCode = () => {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+};
 
 const plans_objects={
     "free":{"images":60,"video":5},

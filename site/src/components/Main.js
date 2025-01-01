@@ -86,7 +86,7 @@ const Main = () => {
           IS AN
         </Text>
         <Text fontWeight={900} color="#2C75FF" margin="0px" id="bold">
-          AMMANAH
+          AMANAH
         </Text>
       </Box>
 
