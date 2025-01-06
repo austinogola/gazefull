@@ -3,6 +3,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import "./styles/Signup.css";
 import Spinner from "./Spinner";
 import background from "./images/background-cropped.png";
@@ -107,26 +109,15 @@ function Signup() {
 
           <div className="signup-input-group">
             <div className="floating-logo-div">
-              <select
-                value={formData.countryCode}
-                onChange={(e) =>
-                  setFormData({ ...formData, countryCode: e.target.value })
-                }
-                required
-              >
-                <option value="+1">+1</option>
-                <option value="+44">+44</option>
-                <option value="+91">+91</option>
-                {/* Add more country codes as needed */}
-              </select>
-              <input
-                type="tel"
-                placeholder="Phone"
+              <PhoneInput
+                country={'us'}
                 value={formData.phone}
-                onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
-                }
-                required
+                onChange={phone => setFormData({ ...formData, phone })}
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  autoFocus: true
+                }}
               />
             </div>
           </div>
