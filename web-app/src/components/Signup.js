@@ -3,9 +3,11 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import "./styles/Signup.css";
 import Spinner from "./Spinner";
-import background from "./images/background-cropped.png";
+import background from "./images/background-cropped.webp";
 import logo from "./images/logo.png";
 import google from "./images/search.png";
 import mail from "./images/mail.png";
@@ -14,7 +16,7 @@ import lock from "./images/locked-computer.png";
 // const SERVER_HOST = "http://localhost:5000";
  const SERVER_HOST= process.env.REACT_APP_SERVER_HOST;
 function Signup() {
-  const [, setCookie] = useCookies(["gg_token"]);
+  const [cookies, setCookie] = useCookies(["gg_token"]);
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -43,11 +45,13 @@ function Signup() {
           formData
         );
         if (response.data.status === "success") {
+          console.log(response.data)
           const gg_token = response.data.gg_token;
           const date = new Date();
           date.setTime(date.getTime() + 21 * 24 * 60 * 60 * 1000); // 21 days from now
-          setCookie("gg_token", gg_token, { path: "/", expires: date });
-          navigate(`/success`);
+
+          // setCookie("gg_token", gg_token, { path: "/", expires: date });
+          navigate(`/confirm-signup`,{ state: { email: formData.email }});
         } else {
           setApiError(response.data.message);
         }
@@ -107,14 +111,17 @@ function Signup() {
 
           <div className="signup-input-group">
             <div className="floating-logo-div">
-              <input
-                type="tel"
-                placeholder="Phone"
+              <PhoneInput
+                id='PhoneInput'
+                country={'us'}
                 value={formData.phone}
-                onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
-                }
-                required
+                onChange={phone => setFormData({ ...formData, phone })}
+                inputProps={{
+                  name: 'phone',
+                  id:'PhoneInput',
+                  required: true,
+                  autoFocus: true
+                }}
               />
             </div>
           </div>

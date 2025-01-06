@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import { Eye, EyeOff } from "lucide-react";
 import "./styles/Login.css";
-import background from "./images/background-cropped.png";
+import background from "./images/background-cropped.webp";
 import logo from "./images/logo.png";
 import google from "./images/search.png";
 import mail from "./images/mail.png";
