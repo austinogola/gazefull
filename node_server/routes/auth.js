@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const Member = require('../models/Member');
 const Account = require('../models/Account');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 
 // process.env.jwtSecret
 const generateToken = async(member) => {
@@ -50,13 +51,22 @@ router.post('/signup', async (req, res, next) => {
         const { email, username, password,phone} = req.body;
         // console.log(email, username, password)
 
-        const existingUser = await Member.findOne({ $or: [{ email }, { username }] });
-        if (existingUser) {
+        let existingEmailUser = await Member.findOne({ email });
+
+        console.log(existingEmailUser)
+        if(existingEmailUser && existingEmailUser.isEmailVerified===true){
             return res.status(400).json({ 
                 message: 'User with this email or username already exists',
                 status: 'fail'
             });
         }
+        let existingUsername = await Member.findOne({ $or: [{ email }, { username }] });
+        // if (existingUsername) {
+        //     return res.status(400).json({ 
+        //         message: 'User with this email or username already exists',
+        //         status: 'fail'
+        //     });
+        // }
 
         const verificationCode = generateVerificationCode();
 
@@ -90,14 +100,35 @@ router.post('/signup', async (req, res, next) => {
             from: 'info@gazeguard.io',
             subject: 'Email Verification for Gaze Guard',
             text: `Your verification code is: ${verificationCode}\n\n` +
-                  `This code will expire in 15 minutes.\n` +
+                  `This code will expire in 30 minutes.\n` +
                   `If you did not sign up, please ignore this email.`
         };
 
         await transporter.sendMail(mailOptions);
 
         // Save the new member
-        // await newMember.save();
+        if(!existingUsername){
+            await newMember.save();
+        }else{
+           
+            let pwdHash=await bcrypt.hash(password, 10)
+            existingUsername= await Member.findOneAndUpdate(
+                { email }, 
+                { 
+                    emailVerificationCode: verificationCode,
+                    emailVerificationExpires:Date.now() + 30 * 60 * 1000 ,
+                    username,password:pwdHash
+                 }, 
+                { new: true } // Returns the updated document
+              );
+        }
+
+        console.log('NEW',existingUsername)
+        
+
+        res.status(200).json({ message: 'User created . Confirm',status:"success" });
+
+        
        
 
 
@@ -140,16 +171,81 @@ router.post('/signup', async (req, res, next) => {
     }
 });
 
+router.post('/confirm-code', async(req, res, next) => {
+    const { email, code} = req.body;
+
+    if(!email){
+        return res.status(401).json({ message: 'No email with the code',status:'fail' });
+    }
+    if(!code){
+        return res.status(401).json({ message: 'No code provided',status:'fail' });
+    }
+
+    const existingEmailUser = await Member.findOne({ email });
+
+    if(!existingEmailUser){
+        return res.status(401).json({ message: 'The email provided is invalid',status:'fail' });
+    }
+
+    if(existingEmailUser.emailVerificationCode!=code){
+        return res.status(401).json({ message: 'Invalid code provided',status:'fail' });
+    }else{
+        if(Date.now()>existingEmailUser.emailVerificationExpires){
+            return res.status(401).json({ message: 'Code expired. Please try again',status:'fail' }); 
+        }
+
+        let newAccount;
+        try {
+            newAccount = new Account({ memberId: existingEmailUser._id, plan: 'Free', usage: [],payments:[]  });
+            await newAccount.save();
+        } catch (err) {
+            console.error('Error creating account:', err);
+            // Retry account creation
+            newAccount = new Account({ memberId: existingEmailUser._id,  plan: 'Free', usage: [],payments:[] });
+            existingEmailUser.isEmailVerified=false
+            await newAccount.save();
+        }finally{
+            await Member.findOneAndUpdate(
+                { email }, 
+                { 
+                    isEmailVerified:true
+                 }, 
+                { new: true } // Returns the updated document
+              );
+            req.login(existingEmailUser, async err => {
+                if (err) {
+                    return next(err);
+                }
+                // Generate JWT
+                const token = await generateToken(existingEmailUser)
+    
+                // Set token in cookies
+                // res.cookie('gg_token', token, { httpOnly: true });
+    
+                // Send response
+                res.status(200).json({ message: 'User created and logged in', gg_token:token,status:"success" });
+            });
+        }
+
+
+    }
+
+   
+})
+
 // Log In and Send Token
 router.post('/login', async(req, res, next) => {
     passport.authenticate('local', async(err, member, info) => {
         if (err) return next(err);
-        if (!member) return res.status(401).json({ message: info.message });
+        if (!member) return res.status(401).json({ message: info.message,status:'fail' });
 
         req.login(member, async(err) => {
             if (err) return next(err);
 
             console.log(member)
+            if(!member.isEmailVerified){
+                return res.status(401).json({ message: 'User is not verified',status:'fail' });
+            }
             // Generate JWT
             const token = await generateToken(member);
             console.log('the tokennn',token)
@@ -324,18 +420,18 @@ router.post('/request-password-reset', async (req, res) => {
 
     console.log(email)
     if (!email) {
-        return res.status(400).json({ message: 'Email is required' });
+        return res.status(400).json({ message: 'Email is required',status:'fail' });
     }
 
     try {
         const member = await Member.findOne({ email });
         if (!member) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.status(404).json({ message: 'User not found' ,status:'fail'});
         }
 
         const resetToken = crypto.randomBytes(32).toString('hex');
         member.resetPasswordToken = resetToken;
-        member.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+        member.resetPasswordExpires = Date.now() + 3600 * 1000; // 1 hour
         await member.save();
 
         const transporter = nodemailer.createTransport({
@@ -356,7 +452,7 @@ router.post('/request-password-reset', async (req, res) => {
         const mailOptions = {
             to: email,
             from: 'info@gazeguard.io',
-            subject: 'Password Reset',
+            subject: 'GazeGuard Password Reset',
             text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
             Please click on the following link, or paste this into your browser to complete the process:\n
             ${process.env.web_app_host}/reset-password?token=${resetToken}\n
@@ -382,7 +478,7 @@ router.post('/reset-password/:token', async (req, res) => {
     const { token } = req.params;
 
     if (!newPassword) {
-        return res.status(400).json({ message: 'New password is required' });
+        return res.status(400).json({ message: 'New password is required',status:'fail' });
     }
 
     try {
@@ -392,7 +488,7 @@ router.post('/reset-password/:token', async (req, res) => {
         });
 
         if (!member) {
-            return res.status(400).json({ message: 'Password reset token is invalid or has expired' });
+            return res.status(400).json({ message: 'Password reset token is invalid or has expired',status:'fail' });
         }
 
         member.password = newPassword; // You should hash the password before saving
@@ -400,7 +496,7 @@ router.post('/reset-password/:token', async (req, res) => {
         member.resetPasswordExpires = undefined;
         await member.save();
 
-        res.status(200).json({ message: 'Password has been reset' ,status:'success'});
+        res.status(200).json({ message: 'Password has been reset. Login to proceed' ,status:'success'});
     } catch (err) {
         res.status(500).json({ message: 'Error resetting password', error: err.message,status:'fail' });
     }

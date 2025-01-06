@@ -10,7 +10,7 @@ const memberSchema = new mongoose.Schema({
     resetPasswordExpires:{type:Number},
     phone:{type:String},
     emailVerificationCode: String,
-    emailVerificationExpires: Date,
+    emailVerificationExpires: Number,
     isEmailVerified: {
         type: Boolean,
         default: false

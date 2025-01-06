@@ -197,3 +197,12 @@
   font-size: 0.875rem;
   margin-top: 1rem;
 }
+
+.success-message {
+  text-align: center;
+  color: #27FF82;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+

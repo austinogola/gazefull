@@ -13,6 +13,7 @@ import ForgotPassword from "./components/forgotPassword";
 import Check from './components/Check'
 import PasswordReset from "./components/PasswordReset";
 import PasswordResetForm from "./components/PasswordResetForm";
+import ConfirmSignup from './components/ConfirmationCode'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/checkout" element={<Check />} />
         <Route path="/reset" element={<PasswordReset />} />
         <Route path="/reset-password" element={<PasswordResetForm />} />
+        <Route path="/confirm-signup" element={<ConfirmSignup />} />
       </Routes>
     </Router>
   );

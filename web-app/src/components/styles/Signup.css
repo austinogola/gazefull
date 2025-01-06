@@ -13,6 +13,11 @@
   overflow: hidden;
 }
 
+#PhoneInput{
+  height: 3rem;
+  width:100%;
+}
+
 
 
 .signup-backgroundImage img {
@@ -142,6 +147,23 @@
   border-radius: 0.375rem;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+
+.confirm-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  height:50px;
+  transition: background-color 0.2s;
+}
+.confirm-btn:hover{
+  background-color: #2563eb;
 }
 
 .sign-in-button:hover,
