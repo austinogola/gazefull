@@ -107,6 +107,18 @@ function Signup() {
 
           <div className="signup-input-group">
             <div className="floating-logo-div">
+              <select
+                value={formData.countryCode}
+                onChange={(e) =>
+                  setFormData({ ...formData, countryCode: e.target.value })
+                }
+                required
+              >
+                <option value="+1">+1</option>
+                <option value="+44">+44</option>
+                <option value="+91">+91</option>
+                {/* Add more country codes as needed */}
+              </select>
               <input
                 type="tel"
                 placeholder="Phone"
