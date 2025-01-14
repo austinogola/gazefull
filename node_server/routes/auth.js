@@ -3,7 +3,31 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const Member = require('../models/Member');
+
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "/auth/google/callback"
+  },
+  async (accessToken, refreshToken, profile, done) => {
+    try {
+      let member = await Member.findOne({ googleId: profile.id });
+      if (!member) {
+        member = new Member({
+          googleId: profile.id,
+          username: profile.displayName,
+          email: profile.emails[0].value
+        });
+        await member.save();
+      }
+      return done(null, member);
+    } catch (err) {
+      return done(err, null);
+    }
+  }
+));
 const Account = require('../models/Account');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -258,6 +282,16 @@ router.post('/login', async(req, res, next) => {
         });
     })(req, res, next);
 });
+
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+router.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  (req, res) => {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  }
+);
 
 // Log Out
 router.post('/logout', (req, res) => {
