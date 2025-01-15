@@ -31,6 +31,8 @@ export default function Login() {
 
    let redirect_uri=`${process.env.REACT_APP_WEB_HOST}/oauth-google`
 
+   console.log(process.env.REACT_APP_G00GLE_ID)
+
   const validateForm = () => {
     const newErrors = {};
     if (!formData.email) newErrors.email = "Email is required";
@@ -143,6 +145,9 @@ export default function Login() {
             </button>
           </div> */}
         </form>
+        <div class="or-divider">
+        <span>OR</span>
+      </div>
         <div className="floating-logo-div" style={{marginTop:'20px'}}>
                   <GoogleButton 
                         client_id={process.env.REACT_APP_G00GLE_ID}

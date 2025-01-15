@@ -32,11 +32,10 @@ function Signup() {
   const userParam = searchParams.get("bounce");
 
   const validateForm = () => {
-    return formData.username && formData.email && formData.password;
+    return formData.email && formData.password;
   };
-
+ 
   console.log(process.env.REACT_APP_G00GLE_ID)
-  console.log(process.env)
 
   let redirect_uri=`${process.env.REACT_APP_WEB_HOST}/oauth-google`
 
@@ -152,6 +151,9 @@ function Signup() {
           </div> */}
           {apiError && <p className="error-message">{apiError}</p>}
         </form>
+        <div class="or-divider">
+          <span>OR</span>
+        </div>
         <div className="floating-logo-div">
           <GoogleButton 
                 client_id={process.env.REACT_APP_G00GLE_ID}
