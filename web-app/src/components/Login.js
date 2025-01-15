@@ -9,7 +9,7 @@ import logo from "./images/logo.png";
 import google from "./images/search.png";
 import mail from "./images/mail.png";
 import lock from "./images/locked-computer.png";
-
+import {GoogleButton} from 'react-oauth-ninja';
 // const SERVER_HOST = "http://localhost:5000";
 const SERVER_HOST= process.env.REACT_APP_SERVER_HOST;
 // const SERVER_HOST='http://213.148.17.135:8000'
@@ -28,6 +28,8 @@ export default function Login() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const userParam = searchParams.get("bounce");
+
+   let redirect_uri=`${process.env.REACT_APP_WEB_HOST}/oauth-google`
 
   const validateForm = () => {
     const newErrors = {};
@@ -141,6 +143,20 @@ export default function Login() {
             </button>
           </div> */}
         </form>
+        <div className="floating-logo-div" style={{marginTop:'20px'}}>
+                  <GoogleButton 
+                        client_id={process.env.REACT_APP_G00GLE_ID}
+        
+                        redirect_uri={redirect_uri}
+        
+                        styles={{width:"100%"}}
+
+                        text={{
+                      value:'Continue with Google',
+                 
+                    }}
+                    />
+                </div>
         <p className="signup-link">
           Don't have an account? <a href="/signup">Sign up</a>
         </p>
