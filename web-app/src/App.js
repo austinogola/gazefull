@@ -14,6 +14,7 @@ import Check from './components/Check'
 import PasswordReset from "./components/PasswordReset";
 import PasswordResetForm from "./components/PasswordResetForm";
 import ConfirmSignup from './components/ConfirmationCode'
+import GoOAuth from './components/GoOAuth';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/reset" element={<PasswordReset />} />
         <Route path="/reset-password" element={<PasswordResetForm />} />
         <Route path="/confirm-signup" element={<ConfirmSignup />} />
+        <Route path="/oauth-google" element={<GoOAuth />} />
       </Routes>
     </Router>
   );

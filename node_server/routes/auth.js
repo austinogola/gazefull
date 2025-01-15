@@ -2,13 +2,18 @@ const express = require('express');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const passport = require('passport');
+const jwt_decode = require("jwt-decode");
+const { jwtDecode } =jwt_decode
 const jwt = require('jsonwebtoken');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const Member = require('../models/Member');
+require("dotenv").config();
+
+
 
 passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    clientID: process.env.google_client_id,
+    clientSecret: process.env.google_client_secret,
     callbackURL: "/auth/google/callback"
   },
   async (accessToken, refreshToken, profile, done) => {
@@ -36,6 +41,7 @@ const bcrypt = require('bcryptjs');
 const generateToken = async(member) => {
     // console.log(process.env.jwtSecret)
     return new Promise(async(resolve,reject)=>{
+        console.log(member)
         const maxAge = 24 *15 * 60 * 60;
     const token=await jwt.sign(
             { id: member._id, email: member.email },
@@ -535,5 +541,94 @@ router.post('/reset-password/:token', async (req, res) => {
         res.status(500).json({ message: 'Error resetting password', error: err.message,status:'fail' });
     }
 });
+
+const getGoogleOAuthTokens=(code,webHost)=>{
+    // console.log(webHost)
+    const url='https://oauth2.googleapis.com/token'
+    const vals={
+        client_id:process.env.google_client_id,
+        client_secret:process.env.google_client_secret,
+        redirect_uri:`${process.env.web_app_host}/oauth-google`,
+        grant_type:"authorization_code",
+        code
+    }
+
+    return new Promise(async(resolve,reject)=>{
+            fetch(url,{
+                method:'POST',
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(vals)
+            })
+            .then(async res=>{
+                let resp=await res.json()
+                // console.log(resp)
+                const {access_token}=resp
+                if(access_token){
+                    const {access_token,refresh_token,scope,token_type,id_token}=resp
+                    resolve({access_token,refresh_token,scope,token_type,id_token,success:true})
+                }else{
+                    resolve({error:true})
+                }
+    
+            }) 
+    })  
+}
+
+router.post('/google',async(req,res)=>{
+    const {code,scope,webHost}=req.body
+    console.log(code,scope,webHost)
+
+    let ans=await getGoogleOAuthTokens(code,webHost)
+    console.log(ans)
+    if(ans.error){
+        return res.status(500).json({error:true,message:"Please try again",status:'fail'})
+    }else{
+        const {id_token}=ans
+        const googleUser=jwtDecode(id_token)
+        
+        console.log(googleUser)
+        const {email,email_verified,given_name,family_name,picture}=googleUser
+
+        const existingEmailUser = await Member.findOne({ email });
+
+        console.log('fffff',existingEmailUser)
+        let token
+        try{
+            if(!existingEmailUser){
+                const newMember = new Member({ 
+                    email
+                });
+                await newMember.save();
+                console.log('jjjjj',newMember)
+                // const existingEmailUser = await Member.findOne({ email });
+    
+                let newAccount = new Account({ memberId: newMember._id, plan: 'Free', usage: [],payments: [] });
+                await newAccount.save();
+    
+                console.log('AAAA')
+                token = await generateToken(newMember);
+    
+                // return res.status(401).json({ message: 'The email provided is invalid',status:'fail' });
+            }else{
+                console.log('BBBB')
+                token = await generateToken(existingEmailUser);
+            }
+        }
+        catch (err) {
+            // return done(err, null);
+            let existingEmailUser2 = await Member.findOne({ email });
+            console.log('sfdsfs',existingEmailUser2)
+            let newAccount = new Account({ memberId: existingEmailUser2._id, plan: 'Free', usage: [],payments: [] });
+            await newAccount.save();
+
+            console.log('DDDD')
+            token = await generateToken(existingEmailUser2);
+        }
+        
+
+        res.status(200).json({ message: 'Logged in successfully', gg_token:token,status:"success" })
+        // res.status(200).json({error:false,token,status:'success'})
+    }
+})
 
 module.exports = router;

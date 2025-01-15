@@ -12,6 +12,7 @@ import logo from "./images/logo.png";
 import google from "./images/search.png";
 import mail from "./images/mail.png";
 import lock from "./images/locked-computer.png";
+import {GoogleButton} from 'react-oauth-ninja';
 
 // const SERVER_HOST = "http://localhost:5000";
  const SERVER_HOST= process.env.REACT_APP_SERVER_HOST;
@@ -34,6 +35,12 @@ function Signup() {
     return formData.username && formData.email && formData.password;
   };
 
+  console.log(process.env.REACT_APP_G00GLE_ID)
+  console.log(process.env)
+
+  let redirect_uri=`${process.env.REACT_APP_WEB_HOST}/oauth-google`
+
+  console.log(redirect_uri)
   const handleSubmit = async (e) => {
     e.preventDefault();
     setApiError("");
@@ -81,19 +88,6 @@ function Signup() {
           <p>Create your Gaze Guard account</p>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="signup-input-group">
-            <div className="floating-logo-div">
-              <input
-                type="text"
-                placeholder="Username"
-                value={formData.username}
-                onChange={(e) =>
-                  setFormData({ ...formData, username: e.target.value })
-                }
-                required
-              />
-            </div>
-          </div>
           <div className="signup-input-group">
             <div className="floating-logo-div">
               <img src={mail} alt="email-logo" className="email-logo" />
@@ -158,6 +152,16 @@ function Signup() {
           </div> */}
           {apiError && <p className="error-message">{apiError}</p>}
         </form>
+        <div className="floating-logo-div">
+          <GoogleButton 
+                client_id={process.env.REACT_APP_G00GLE_ID}
+
+                redirect_uri={redirect_uri}
+
+                styles={{width:"100%"}}
+            />
+        </div>
+        
         <p className="login-link">
           Already have an account? <a href="/login">Log in</a>
         </p>
